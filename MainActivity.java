@@ -1,4 +1,4 @@
-package com.example.usermessage;
+package com.example.simplelogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,29 +9,41 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    EditText editText;
-    Button btn;
+    EditText username;
+    EditText password;
+    Button btnlogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        username=(EditText)findViewById(R.id.editText);
+        password=(EditText)findViewById(R.id.editText3);
+        btnlogin=(Button)findViewById(R.id.button);
 
-        editText=(EditText)findViewById(R.id.editText1);
-        String tst=editText.getText().toString();
-        btn=(Button)findViewById(R.id.button1);
+        btnlogin.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
 
-       btn.setOnClickListener(
-               new View.OnClickListener() {
-                   @Override
-                   public void onClick(View view) {
+                        if(username.getText().toString().equals("xxx")
+                                && password.getText().toString().equals("xxx"))
+                        {
+                            Toast.makeText(getApplicationContext(),"Valid User",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"InValid User",
+                                    Toast.LENGTH_LONG).show();
 
-                       Toast.makeText(getApplicationContext(),"Button clicked",Toast.LENGTH_LONG).show();
+                        }
 
-                   }
-               }
-       );
+
+
+                    }
+                }
+        );
+
 
 
 
